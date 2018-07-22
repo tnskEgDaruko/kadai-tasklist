@@ -1,8 +1,14 @@
 <h1>id: <%= @task.id %>　のタスク詳細ページ</h1>
+<table class="table table-bordered">
+  <tr>
+    <th>やること</th>
+    <td><%= @task.content %></td>
+  </tr>
+  <tr>
+    <th>優先度</th>
+    <td><%= @task.status %></td>
+  </tr>
+</table>
 
-<p>やること：<%= @task.content %></p>
-<p>優先度：<%= @task.status %></p>
-
-<%= link_to '一覧リストへ戻る', tasks_path %>
-<%= link_to 'タスクを編集する', edit_task_path %>
-<%= link_to 'タスクを削除する', @task, method: :delete, data: { confirm: '本当に削除してよろしいですか？' } %>
+<%= link_to 'タスクを編集する', edit_task_path, class: 'btn btn-default' %>
+<%= link_to 'タスクを削除する', @task, method: :delete, data: { confirm: '本当に削除してよろしいですか？' }, class: 'btn btn-danger' %>
